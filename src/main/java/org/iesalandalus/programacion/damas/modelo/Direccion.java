@@ -5,5 +5,8 @@ public enum Direccion {
 
     private String cadenaAMostrar;
     private Direccion(String mensajeAMostrar) {this.cadenaAMostrar=mensajeAMostrar;}
+
+    @Override
+    public String toString() {return cadenaAMostrar;}
 }
 
