@@ -6,6 +6,13 @@ public class Dama {
     private Posicion posicion;
     private boolean esDamaEspecial;
 
+    //3-Constructor
+    public Dama() {
+        this.color = Color.BLANCO;
+        this.posicion = crearPosicionInicial();
+        this.esDamaEspecial = false;
+    }
+
     //2.1-Métodos get y set con la excepción de color
     public Color getColor() {
         return color;
