@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.damas.modelo;
 
+import java.util.Objects;
+
 public class Posicion {
     //1-Atributos
     private int fila;
@@ -20,7 +22,7 @@ public class Posicion {
         this.columna = posicion.columna;
     }
 
-    //2-Métodos get y set con la excepción de Fila
+    //2.1-Métodos get y set con la excepción de Fila
     public int getFila() {
         return fila;
     }
@@ -30,7 +32,7 @@ public class Posicion {
         }
         this.fila = fila;
     }
-    //Métodos get y set con la excepción de Columna
+    //2.2-Métodos get y set con la excepción de Columna
     public char getColumna() {
         return columna;
     }
@@ -41,7 +43,21 @@ public class Posicion {
         this.columna = columna;
     }
 
-
-
-
+    //5.1-HashCode para optimizar la búsqueda y organización de las posiciones ocupadas en colecciones.
+    @Override
+    public int hashCode() {
+        return Objects.hash(fila,columna);
+    }
+    //5.2-Equals para comparar si dos posiciones en el tablero tienen las mismas coordenadas).
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Posicion posicion= (Posicion) obj;
+        return fila == posicion.fila && columna == posicion.columna;
+    }
 }
