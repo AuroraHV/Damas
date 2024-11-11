@@ -60,4 +60,11 @@ public class Posicion {
         Posicion posicion= (Posicion) obj;
         return fila == posicion.fila && columna == posicion.columna;
     }
+
+    //6-Representación en texto para mostrar los atributos especificados en un sout
+    @Override
+    public String toString() {
+        return "fila=" + fila + ", columna=" + columna;
+    }
+
 }
