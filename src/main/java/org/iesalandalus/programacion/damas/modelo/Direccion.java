@@ -1,16 +1,16 @@
 package org.iesalandalus.programacion.damas.modelo;
 
 public enum Direccion {
-    //Enumerado con literales
+    //1-Enumerado con literales
     NORESTE ("Noreste"), SURESTE ("Sureste"), SUROESTE ("Suroeste"), NOROESTE("Noroeste");
 
-    //Atributo
+    //2-Atributo
     private String cadenaAMostrar;
 
-    //Constructor
+    //3-Constructor
     private Direccion(String cadenaAMostrar) {this.cadenaAMostrar=cadenaAMostrar;}
 
-    //Representación en texto de los literales
+    //4-Representación en texto de los literales
     @Override
     public String toString() {return cadenaAMostrar;}
 }
