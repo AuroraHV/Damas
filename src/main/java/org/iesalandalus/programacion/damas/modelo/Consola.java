@@ -8,7 +8,7 @@ public class Consola {
     private Consola() {
     }
     //3-Menú para las opciones de la aplicación
-    public static void mostrarMenu() {
+    private static void mostrarMenu() {
         System.out.println("Menú de opciones:");
         System.out.println("1. Crear dama por defecto");
         System.out.println("2. Crear dama eligiendo el color");
@@ -21,7 +21,7 @@ public class Consola {
         int opcion;
 
         do {
-            System.out.print("Elige una opción (1-4): ");
+            System.out.println("Elige una opción (1-4): ");
             opcion = Entrada.entero();
             if (opcion < 1 || opcion > 4) {
                 System.out.println("Opción inválida. Debe ser un número entre 1 y 4.");
@@ -31,7 +31,7 @@ public class Consola {
         return opcion;
     }
 
-    //4-Elegir opción de color y verificar que sea válido
+    //5-Elegir opción de color y verificar que sea válido
     private static Color elegirColor()
     {
         int opcionColor;
@@ -40,12 +40,13 @@ public class Consola {
         do
         {
             System.out.println("Elige un color para la dama:");
-            System.out.println("1. Blanca");
-            System.out.println("2. Negra");
+            System.out.println("=======================================================");
+            System.out.println("1. BLANCA");
+            System.out.println("2. NEGRA");
             System.out.print("Introduce el color (1 o 2): ");
             opcionColor = Entrada.entero();
 
-            if (opcionColor != 1 && opcionColor != 2) {
+            if (opcionColor<1 || opcionColor>2) {
                 System.out.println("Opción inválida. Debes elegir 1 (Blanco) o 2 (Negro).");
             }
         }while (opcionColor<1 || opcionColor>2);
@@ -57,6 +58,15 @@ public class Consola {
         return color;
     }
 
+    // 6-Menú con direcciones
+    private static void mostrarMenuDirecciones() {
+        System.out.println("Elige la dirección de la dama:");
+        System.out.println("=======================================================");
+        System.out.println("1.NORESTE");
+        System.out.println("2.SURESTE");
+        System.out.println("3.NOROESTE");
+        System.out.println("4.SUROESTE");
+    }
 
 
 
