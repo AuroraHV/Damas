@@ -6,6 +6,7 @@ import org.iesalandalus.programacion.damas.modelo.Direccion;
 import org.iesalandalus.programacion.damas.modelo.Dama;
 
 public class MainApp {
-	
+    //1-Atributo
+    private static Dama dama;
 	
 }
