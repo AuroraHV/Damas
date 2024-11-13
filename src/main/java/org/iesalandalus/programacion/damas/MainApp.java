@@ -10,7 +10,7 @@ public class MainApp {
     //1-Atributo
     private static Dama dama;
 
-    //2-Ejecutar opción
+    //2-Ejecutar opción según métodos
     private static void ejecutarOpcion(int opcion) {
         switch (opcion) {
             case 1:
@@ -31,6 +31,14 @@ public class MainApp {
             default:
         }
     }
+
+    // Crear dama por defecto
+    private static void crearDamaDefecto() {
+        dama = new Dama();
+        System.out.println("Dama por defecto (blanca) creada.");
+    }
+
+
 
 }
 
