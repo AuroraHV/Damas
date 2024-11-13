@@ -32,18 +32,41 @@ public class MainApp {
         }
     }
 
-    // Crear dama por defecto
+    //3-crearDamaDefecto
     private static void crearDamaDefecto() {
         dama = new Dama();
         System.out.println("Dama creada.");
     }
 
-    // Determinar color
+    //4-crearDamaColor
     private static void crearDamaColor() {
         Color color = Consola.elegirColor();
         dama = new Dama(color);
         System.out.println("Dama de color " + color + " creada.");
     }
+
+    //5-mover
+    private static void mover() {
+        if (dama == null) {
+            System.out.println("Primero debes crear una dama.");
+            return;
+        }
+        //Pedir la dirección
+        Direccion direccion = Consola.elegirDireccion();
+        //Pedir casillas (cambian si la dama es especial)
+        int casillas;
+        if (dama.isEsDamaEspecial()) {
+            casillas = Consola.elegirPasos();
+        } else casillas = 1;
+
+        try {
+            dama.mover(direccion, casillas);
+            System.out.println("La dama se ha movido " + casillas + " casillas.");
+        } catch (IllegalArgumentException | OperationNotSupportedException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
 
 
 
