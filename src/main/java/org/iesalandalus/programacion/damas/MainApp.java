@@ -61,9 +61,17 @@ public class MainApp {
 
         try {
             dama.mover(direccion, casillas);
-            System.out.println("La dama se ha movido " + casillas + " casillas.");
+            System.out.println("La dama se ha movido " + casillas + " casilla(s).");
         } catch (IllegalArgumentException | OperationNotSupportedException e) {
             System.out.println("Error: " + e.getMessage());
+        }
+    }
+    //6-mostrarDama
+    private static void mostrarDama() {
+        if (dama != null) {
+            System.out.println(dama);
+        } else {
+            System.out.println("Aún no se ha creado ninguna dama.");
         }
     }
 
