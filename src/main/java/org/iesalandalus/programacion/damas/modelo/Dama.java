@@ -4,8 +4,6 @@ import javax.naming.OperationNotSupportedException;
 
 public class Dama {
 
-
-
     //1-Atributos
     private Color color;
     private Posicion posicion;

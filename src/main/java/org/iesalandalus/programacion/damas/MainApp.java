@@ -66,6 +66,7 @@ public class MainApp {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
     //6-mostrarDama
     private static void mostrarDama() {
         if (dama != null) {
@@ -75,6 +76,7 @@ public class MainApp {
         }
     }
 
+    //7-Main
     public static void main(String[] args) {
         int opcion;
         do {

@@ -12,8 +12,8 @@ public class Consola {
         System.out.println("Menú de opciones:");
         System.out.println("1. Crear dama por defecto");
         System.out.println("2. Crear dama eligiendo el color");
-        System.out.println("3. Mostrar información de la dama");
-        System.out.println("4. Mover dama");
+        System.out.println("3. Mover dama");
+        System.out.println("4. Mostrar información de la dama");
         System.out.println("5. Salir");
     }
 
