@@ -68,6 +68,39 @@ public class Consola {
         System.out.println("4.SUROESTE");
     }
 
+    // 7-Elegir dirección y verificar
+    private static Direccion elegirDireccion() {
+        int opcionDireccion;
+        Direccion direccion = Direccion.NORESTE;
+
+        do {
+            System.out.print("Introduce una dirección (1-4): ");
+            opcionDireccion= Entrada.entero();
+
+            if (opcionDireccion<1 || opcionDireccion>4) {
+                System.out.println("Opción inválida. Debes entre 1-4.");
+            }
+        }while (opcionDireccion<1 || opcionDireccion>4);
+
+        switch(opcionDireccion)
+        {
+            case 1:
+                direccion=Direccion.NORESTE;
+                break;
+            case 2:
+                direccion=Direccion.SURESTE;
+                break;
+            case 3:
+                direccion=Direccion.NOROESTE;
+                break;
+            case 4:
+                direccion=Direccion.SUROESTE;
+                break;
+            default:
+        }
+        return direccion;
+    }
+
 
 
 }
