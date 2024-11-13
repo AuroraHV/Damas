@@ -35,8 +35,17 @@ public class MainApp {
     // Crear dama por defecto
     private static void crearDamaDefecto() {
         dama = new Dama();
-        System.out.println("Dama por defecto (blanca) creada.");
+        System.out.println("Dama creada.");
     }
+
+    // Determinar color
+    private static void crearDamaColor() {
+        Color color = Consola.elegirColor();
+        dama = new Dama(color);
+        System.out.println("Dama de color " + color + " creada.");
+    }
+
+
 
 
 
