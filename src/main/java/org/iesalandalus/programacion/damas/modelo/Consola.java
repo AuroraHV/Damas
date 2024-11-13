@@ -100,7 +100,23 @@ public class Consola {
         }
         return direccion;
     }
+    //7-Elegir pasos y verificar
+    private static int elegirPasos() {
+        int pasos;
 
+        do {
+            System.out.print("Introduce el número de casillas (mayor o igual a 1): ");
+            pasos = Entrada.entero();
 
+            if (pasos < 1) {
+                System.out.println("Número inválido. Debe ser un entero positivo mayor o igual a 1.");
+            }
+        } while (pasos < 1);
 
+        return pasos;
+    }
+
+    private static void despedirse() {
+        System.out.println("Gracias por jugar. ¡Hasta la próxima!");
+    }
 }
