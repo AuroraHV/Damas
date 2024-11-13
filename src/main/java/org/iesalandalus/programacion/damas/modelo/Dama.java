@@ -151,6 +151,9 @@ public class Dama {
 
     }
 
-
-
+    //6-Atributos de la dama para sout
+    @Override
+    public String toString() {
+        return "Dama{" + "color=" + color + ", posicion=" + posicion + ", esDamaEspecial=" + esDamaEspecial + '}';
+    }
 }
