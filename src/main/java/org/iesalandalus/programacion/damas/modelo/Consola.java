@@ -8,31 +8,32 @@ public class Consola {
     private Consola() {
     }
     //3-Menú para las opciones de la aplicación
-    private static void mostrarMenu() {
+    public static void mostrarMenu() {
         System.out.println("Menú de opciones:");
         System.out.println("1. Crear dama por defecto");
         System.out.println("2. Crear dama eligiendo el color");
-        System.out.println("3. Mover dama");
-        System.out.println("4. Salir");
+        System.out.println("3. Mostrar información de la dama");
+        System.out.println("4. Mover dama");
+        System.out.println("5. Salir");
     }
 
     //4-Elegir opción y verificar que esté en el rango
-    private static int elegirOpcionMenu() {
+    public static int elegirOpcionMenu() {
         int opcion;
 
         do {
-            System.out.println("Elige una opción (1-4): ");
+            System.out.println("Elige una opción (1-5): ");
             opcion = Entrada.entero();
-            if (opcion < 1 || opcion > 4) {
-                System.out.println("Opción inválida. Debe ser un número entre 1 y 4.");
+            if (opcion < 1 || opcion > 5) {
+                System.out.println("Opción inválida. Debe ser un número entre 1 y 5.");
             }
-        } while (opcion < 1 || opcion > 4);
+        } while (opcion < 1 || opcion > 5);
 
         return opcion;
     }
 
     //5-Elegir opción de color y verificar que sea válido
-    private static Color elegirColor()
+    public static Color elegirColor()
     {
         int opcionColor;
         Color color=Color.BLANCO;
@@ -59,7 +60,7 @@ public class Consola {
     }
 
     // 6-Menú con direcciones
-    private static void mostrarMenuDirecciones() {
+    public static void mostrarMenuDirecciones() {
         System.out.println("Elige la dirección de la dama:");
         System.out.println("=======================================================");
         System.out.println("1.NORESTE");
@@ -69,7 +70,7 @@ public class Consola {
     }
 
     // 7-Elegir dirección y verificar
-    private static Direccion elegirDireccion() {
+    public static Direccion elegirDireccion() {
         int opcionDireccion;
         Direccion direccion = Direccion.NORESTE;
 
@@ -101,7 +102,7 @@ public class Consola {
         return direccion;
     }
     //7-Elegir pasos y verificar
-    private static int elegirPasos() {
+    public static int elegirPasos() {
         int pasos;
 
         do {
@@ -116,7 +117,7 @@ public class Consola {
         return pasos;
     }
 
-    private static void despedirse() {
+    public static void despedirse() {
         System.out.println("Gracias por jugar. ¡Hasta la próxima!");
     }
 }
