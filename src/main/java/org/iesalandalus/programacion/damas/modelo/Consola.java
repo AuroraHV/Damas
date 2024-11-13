@@ -17,18 +17,44 @@ public class Consola {
     }
 
     //4-Elegir opción y verificar que esté en el rango
-    public static int elegirOpcionMenu() {
+    private static int elegirOpcionMenu() {
         int opcion;
 
         do {
-            System.out.print("Elija una opción (1-4): ");
+            System.out.print("Elige una opción (1-4): ");
             opcion = Entrada.entero();
             if (opcion < 1 || opcion > 4) {
                 System.out.println("Opción inválida. Debe ser un número entre 1 y 4.");
             }
-        } while (opcion < 1 || opcion > 4); // Verificar que la opción esté en el rango correcto
+        } while (opcion < 1 || opcion > 4);
 
         return opcion;
+    }
+
+    //4-Elegir opción de color y verificar que sea válido
+    private static Color elegirColor()
+    {
+        int opcionColor;
+        Color color=Color.BLANCO;
+
+        do
+        {
+            System.out.println("Elige un color para la dama:");
+            System.out.println("1. Blanca");
+            System.out.println("2. Negra");
+            System.out.print("Introduce el color (1 o 2): ");
+            opcionColor = Entrada.entero();
+
+            if (opcionColor != 1 && opcionColor != 2) {
+                System.out.println("Opción inválida. Debes elegir 1 (Blanco) o 2 (Negro).");
+            }
+        }while (opcionColor<1 || opcionColor>2);
+
+        if (opcionColor==1) {
+            color=Color.BLANCO;
+        } else color=Color.NEGRO;
+
+        return color;
     }
 
 
