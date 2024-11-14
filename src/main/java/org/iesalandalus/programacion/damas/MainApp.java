@@ -29,20 +29,40 @@ public class MainApp {
                 Consola.despedirse();
                 break;
             default:
+                break;
         }
     }
 
     //3-crearDamaDefecto
     private static void crearDamaDefecto() {
-        dama = new Dama();
-        System.out.println("Dama creada.");
+        try {
+            dama = new Dama();
+            System.out.println("Dama creada correctamente.");
+            System.out.println("-----------------------------");
+        }
+        catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     //4-crearDamaColor
     private static void crearDamaColor() {
-        Color color = Consola.elegirColor();
-        dama = new Dama(color);
-        System.out.println("Dama de color " + color + " creada.");
+        boolean error=false;
+        do {
+        try {
+            Color color = Consola.elegirColor();
+            dama = new Dama(color);
+            System.out.println("Dama de color " + color + " creada correctamente.");
+            System.out.println("-----------------------------");
+        }
+        catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println("ERROR: La dama no ha sido creada.");
+            System.out.println(e.getMessage());
+            error=true;
+        }
+        } while (error);
     }
 
     //5-mover
@@ -51,19 +71,22 @@ public class MainApp {
             System.out.println("Primero debes crear una dama.");
             return;
         }
-        //Pedir la dirección
-        Direccion direccion = Consola.elegirDireccion();
-        //Pedir casillas (cambian si la dama es especial)
-        int casillas;
-        if (dama.isEsDamaEspecial()) {
-            casillas = Consola.elegirPasos();
-        } else casillas = 1;
-
         try {
-            dama.mover(direccion, casillas);
-            System.out.println("La dama se ha movido " + casillas + " casilla(s).");
+            Consola.mostrarMenuDirecciones();
+            //Pedir la dirección
+            Direccion direccion = Consola.elegirDireccion();
+            //int pasos = Consola.elegirPasos();
+            int pasos;
+            //Pedir casillas (cambian si la dama es especial)
+            if (dama.isEsDamaEspecial()) {
+                pasos = Consola.elegirPasos();
+            } else pasos = 1;
+
+            dama.mover(direccion, pasos);
+            System.out.println("La dama se ha movido " + pasos + " casilla(s) al " + direccion + ".");
         } catch (IllegalArgumentException | OperationNotSupportedException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("ERROR: Movimiento no válido.");
+            System.out.println(e.getMessage());
         }
     }
 

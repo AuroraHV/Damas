@@ -16,19 +16,19 @@ public class Posicion {
     //4-Constructor copia (con excepción para que no sea nula la posición)
     public Posicion(Posicion posicion) {
         if (posicion == null) {
-            throw new NullPointerException("La posición no puede ser nula.");
+            throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
         }
-        this.fila = posicion.fila;
-        this.columna = posicion.columna;
+        setColumna(posicion.getColumna());
+        setFila(posicion.getFila());
     }
 
     //2.1-Métodos get y set con la excepción de Fila
     public int getFila() {
         return fila;
     }
-    public void setFila(int fila) {
+    private void setFila(int fila) {
         if (fila < 1 || fila > 8) {
-            throw new IllegalArgumentException("ERROR: Sólo hay filas entre la 1 y la 8.");
+            throw new IllegalArgumentException("ERROR: Fila no válida.");
         }
         this.fila = fila;
     }
@@ -36,9 +36,9 @@ public class Posicion {
     public char getColumna() {
         return columna;
     }
-    public void setColumna(char columna) {
+    private void setColumna(char columna) {
         if (columna < 'a' || columna > 'h') {
-            throw new IllegalArgumentException("ERROR: Sólo hay columnas entre la a y la h.");
+            throw new IllegalArgumentException("ERROR: Columna no válida.");
         }
         this.columna = columna;
     }

@@ -9,12 +9,16 @@ public class Consola {
     }
     //3-Menú para las opciones de la aplicación
     public static void mostrarMenu() {
+        System.out.println("----------------------");
+        System.out.println("JUEGO DE LAS DAMAS");
+        System.out.println("----------------------");
         System.out.println("Menú de opciones:");
-        System.out.println("1. Crear dama por defecto");
-        System.out.println("2. Crear dama eligiendo el color");
-        System.out.println("3. Mover dama");
-        System.out.println("4. Mostrar información de la dama");
-        System.out.println("5. Salir");
+        System.out.println("----------------------");
+        System.out.println("1. Crear dama por defecto.");
+        System.out.println("2. Crear dama eligiendo el color.");
+        System.out.println("3. Mover dama.");
+        System.out.println("4. Mostrar información de la dama.");
+        System.out.println("5. Salir.");
     }
 
     //4-Elegir opción y verificar que esté en el rango
@@ -47,10 +51,10 @@ public class Consola {
             System.out.print("Introduce el color (1 o 2): ");
             opcionColor = Entrada.entero();
 
-            if (opcionColor<1 || opcionColor>2) {
+            if (opcionColor!=1 && opcionColor!=2) {
                 System.out.println("Opción inválida. Debes elegir 1 (Blanco) o 2 (Negro).");
             }
-        }while (opcionColor<1 || opcionColor>2);
+        }while (opcionColor!=1 && opcionColor!=2);
 
         if (opcionColor==1) {
             color=Color.BLANCO;
@@ -79,7 +83,7 @@ public class Consola {
             opcionDireccion= Entrada.entero();
 
             if (opcionDireccion<1 || opcionDireccion>4) {
-                System.out.println("Opción inválida. Debes entre 1-4.");
+                System.out.println("Opción inválida. Debes elegir entre 1-4.");
             }
         }while (opcionDireccion<1 || opcionDireccion>4);
 
@@ -98,6 +102,7 @@ public class Consola {
                 direccion=Direccion.SUROESTE;
                 break;
             default:
+                break;
         }
         return direccion;
     }
