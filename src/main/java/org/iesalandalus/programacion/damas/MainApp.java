@@ -48,8 +48,9 @@ public class MainApp {
 
     //4-crearDamaColor
     private static void crearDamaColor() {
-        boolean error=false;
+        boolean error;
         do {
+            error = false;
         try {
             Color color = Consola.elegirColor();
             dama = new Dama(color);
@@ -71,11 +72,11 @@ public class MainApp {
             System.out.println("Primero debes crear una dama.");
             return;
         }
+        Consola.mostrarMenuDirecciones();
+        //Pedir la dirección
+        Direccion direccion = Consola.elegirDireccion();
+        //int pasos = Consola.elegirPasos();
         try {
-            Consola.mostrarMenuDirecciones();
-            //Pedir la dirección
-            Direccion direccion = Consola.elegirDireccion();
-            //int pasos = Consola.elegirPasos();
             int pasos;
             //Pedir casillas (cambian si la dama es especial)
             if (dama.isEsDamaEspecial()) {
@@ -84,7 +85,7 @@ public class MainApp {
 
             dama.mover(direccion, pasos);
             System.out.println("La dama se ha movido " + pasos + " casilla(s) al " + direccion + ".");
-        } catch (IllegalArgumentException | OperationNotSupportedException e) {
+        } catch (OperationNotSupportedException e) {
             System.out.println("ERROR: Movimiento no válido.");
             System.out.println(e.getMessage());
         }

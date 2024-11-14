@@ -60,7 +60,7 @@ public class Dama {
     //4.2-Determinar posición inicial
     private Posicion crearPosicionInicial(Color color) {
         int fila;
-        char columnasNegras;
+        char columnas;
 
         //4.2.1-Determinar posición inicial: filas
         if (color == Color.BLANCO) {
@@ -70,10 +70,10 @@ public class Dama {
         }
         //4.2.2-Determinar posición inicial: columnas (negras)
         do {
-            columnasNegras = (char) ((int) (Math.random() * 8) + 'a');
+            columnas = (char) ((int) (Math.random() * 8) + 'a');
 
-        } while ((fila + columnasNegras) % 2 != 0);
-            return new Posicion(fila, columnasNegras);
+        } while ((fila + columnas) % 2 != 0);
+            return new Posicion(fila, columnas);
     }
 
     //5-Determinar movimiento
@@ -129,7 +129,7 @@ public class Dama {
             }
 
             // ii.a- Si la dama no es especial, solo podrá moverse una casilla
-            if (!esDamaEspecial && pasos > 1) {
+            if (!esDamaEspecial && pasos != 1) {
                 throw new OperationNotSupportedException ("ERROR: Las damas normales solo se pueden mover 1 casilla.");
             }
 
