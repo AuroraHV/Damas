@@ -75,19 +75,17 @@ public class MainApp {
         Consola.mostrarMenuDirecciones();
         //Pedir la dirección
         Direccion direccion = Consola.elegirDireccion();
-        //int pasos = Consola.elegirPasos();
-        try {
-            int pasos;
-            //Pedir casillas (cambian si la dama es especial)
-            if (dama.isEsDamaEspecial()) {
-                pasos = Consola.elegirPasos();
-            } else pasos = 1;
+        //Pedir casillas (cambian si la dama es especial)
+        int pasos;
+        if (dama.isEsDamaEspecial()) {
+            pasos = Consola.elegirPasos();
+        } else pasos = 1;
 
+        try {
             dama.mover(direccion, pasos);
-            System.out.println("La dama se ha movido " + pasos + " casilla(s) al " + direccion + ".");
-        } catch (OperationNotSupportedException e) {
-            System.out.println("ERROR: Movimiento no válido.");
-            System.out.println(e.getMessage());
+            System.out.println("La dama se ha movido " + pasos + " casilla(s).");
+        } catch (IllegalArgumentException | OperationNotSupportedException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
