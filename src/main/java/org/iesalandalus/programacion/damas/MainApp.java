@@ -83,9 +83,9 @@ public class MainApp {
 
         try {
             dama.mover(direccion, pasos);
-            System.out.println("La dama se ha movido " + pasos + " casilla(s).");
-        } catch (IllegalArgumentException | OperationNotSupportedException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("La dama se ha movido " + pasos + " casilla(s) al " + direccion + ".");
+        } catch (OperationNotSupportedException e) {
+            System.out.println(e.getMessage());
         }
     }
 
