@@ -7,6 +7,11 @@ import org.iesalandalus.programacion.damas.modelo.Direccion;
 import org.iesalandalus.programacion.damas.modelo.Dama;
 
 public class MainApp {
+
+    private static void inicio(){
+        System.out.println("=========================");
+        System.out.println("   JUEGO DE LAS DAMAS");
+    }
     //1-Atributo
     private static Dama dama;
 
@@ -33,40 +38,20 @@ public class MainApp {
         }
     }
 
-    //3-crearDamaDefecto
+    //3-crearDamaDefecto (1)
     private static void crearDamaDefecto() {
-        try {
-            dama = new Dama();
-            System.out.println("Dama creada correctamente.");
-            System.out.println("-----------------------------");
-        }
-        catch(IllegalArgumentException | NullPointerException e)
-        {
-            System.out.println(e.getMessage());
-        }
+        dama = new Dama();
+        System.out.println("Dama creada correctamente.");
     }
 
-    //4-crearDamaColor
+    //4-crearDamaColor (2)
     private static void crearDamaColor() {
-        boolean error;
-        do {
-            error = false;
-        try {
-            Color color = Consola.elegirColor();
-            dama = new Dama(color);
-            System.out.println("Dama de color " + color + " creada correctamente.");
-            System.out.println("-----------------------------");
-        }
-        catch(IllegalArgumentException | NullPointerException e)
-        {
-            System.out.println("ERROR: La dama no ha sido creada.");
-            System.out.println(e.getMessage());
-            error=true;
-        }
-        } while (error);
+        Color color = Consola.elegirColor();
+        dama = new Dama(color);
+        System.out.println("Dama de color <" + color + "> creada correctamente.");
     }
 
-    //5-mover
+    //5-mover (3)
     private static void mover() {
         if (dama == null) {
             System.out.println("Primero debes crear una dama.");
@@ -83,13 +68,16 @@ public class MainApp {
 
         try {
             dama.mover(direccion, pasos);
-            System.out.println("La dama se ha movido " + pasos + " casilla(s) al " + direccion + ".");
+            if (dama.isEsDamaEspecial()) {
+                System.out.println("La dama especial se ha movido " + pasos + " casilla/s al " + direccion + ".");
+            } else System.out.println("La dama se ha movido " + pasos + " casilla al " + direccion + ".");
+
         } catch (OperationNotSupportedException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    //6-mostrarDama
+    //6-mostrarDama (4)
     private static void mostrarDama() {
         if (dama != null) {
             System.out.println(dama);
@@ -101,18 +89,13 @@ public class MainApp {
     //7-Main
     public static void main(String[] args) {
         int opcion;
+        inicio();
         do {
             Consola.mostrarMenu();
             opcion = Consola.elegirOpcionMenu();
             ejecutarOpcion(opcion);
         } while (opcion != 5);
     }
-
-
-
-
-
-
 }
 
 

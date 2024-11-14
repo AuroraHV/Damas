@@ -9,16 +9,15 @@ public class Consola {
     }
     //3-Menú para las opciones de la aplicación
     public static void mostrarMenu() {
-        System.out.println("----------------------");
-        System.out.println("JUEGO DE LAS DAMAS");
-        System.out.println("----------------------");
+        System.out.println("=========================");
         System.out.println("Menú de opciones:");
-        System.out.println("----------------------");
+        System.out.println("=========================");
         System.out.println("1. Crear dama por defecto.");
         System.out.println("2. Crear dama eligiendo el color.");
         System.out.println("3. Mover dama.");
         System.out.println("4. Mostrar información de la dama.");
         System.out.println("5. Salir.");
+        System.out.println("-----------------------------");
     }
 
     //4-Elegir opción y verificar que esté en el rango
@@ -26,10 +25,11 @@ public class Consola {
         int opcion;
 
         do {
-            System.out.println("Elige una opción (1-5): ");
+            System.out.print("Elige una opción (1-5): ");
             opcion = Entrada.entero();
             if (opcion < 1 || opcion > 5) {
-                System.out.println("Opción inválida. Debe ser un número entre 1 y 5.");
+                System.out.println("Opción no válida.");
+                System.out.println("-----------------------------");
             }
         } while (opcion < 1 || opcion > 5);
 
@@ -45,14 +45,14 @@ public class Consola {
         do
         {
             System.out.println("Elige un color para la dama:");
-            System.out.println("=======================================================");
             System.out.println("1. BLANCA");
             System.out.println("2. NEGRA");
             System.out.print("Introduce el color (1 o 2): ");
             opcionColor = Entrada.entero();
 
             if (opcionColor!=1 && opcionColor!=2) {
-                System.out.println("Opción inválida. Debes elegir 1 (Blanco) o 2 (Negro).");
+                System.out.println("Opción no válida.");
+                System.out.println("-----------------------------");
             }
         }while (opcionColor!=1 && opcionColor!=2);
 
@@ -66,7 +66,6 @@ public class Consola {
     // 6-Menú con direcciones
     public static void mostrarMenuDirecciones() {
         System.out.println("Elige la dirección de la dama:");
-        System.out.println("=======================================================");
         System.out.println("1.NORESTE");
         System.out.println("2.SURESTE");
         System.out.println("3.NOROESTE");
@@ -83,7 +82,9 @@ public class Consola {
             opcionDireccion= Entrada.entero();
 
             if (opcionDireccion<1 || opcionDireccion>4) {
-                System.out.println("Opción inválida. Debes elegir entre 1-4.");
+                System.out.println("Opción no válida.");
+                System.out.println("-----------------------------");
+                mostrarMenuDirecciones();
             }
         }while (opcionDireccion<1 || opcionDireccion>4);
 
@@ -111,7 +112,7 @@ public class Consola {
         int pasos;
 
         do {
-            System.out.print("Introduce el número de casillas (mayor o igual a 1): ");
+            System.out.print("Introduce el número de casillas: ");
             pasos = Entrada.entero();
 
             if (pasos < 1) {

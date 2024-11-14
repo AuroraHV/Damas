@@ -152,6 +152,10 @@ public class Dama {
     //6-Atributos de la dama para sout
     @Override
     public String toString() {
-        return "color=" + color + ", posicion=(" + posicion + ")";
+        if (isEsDamaEspecial()){
+            System.out.println("Es una dama especial.");
+            return "color=" + color + ", posicion=(" + posicion + ")";
+        } else return "color=" + color + ", posicion=(" + posicion + ")";
+
     }
 }
