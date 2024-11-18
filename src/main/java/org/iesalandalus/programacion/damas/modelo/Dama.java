@@ -35,7 +35,7 @@ public class Dama {
     }
     private void setColor(Color color) {
         if (color == null) {
-            throw new NullPointerException("El color no puede ser nulo.");
+            throw new NullPointerException("ERROR: El color no puede ser nulo.");
         }
         this.color = color;
     }
@@ -154,8 +154,8 @@ public class Dama {
     public String toString() {
         if (isEsDamaEspecial()){
             System.out.println("Es una dama especial.");
-            return "color=" + color + ", posicion=(" + posicion + ")";
-        } else return "color=" + color + ", posicion=(" + posicion + ")";
+        }
+        return "color=" + color + ", posicion=(" + posicion + ")";
 
     }
 }

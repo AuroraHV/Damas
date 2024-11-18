@@ -40,15 +40,32 @@ public class MainApp {
 
     //3-crearDamaDefecto (1)
     private static void crearDamaDefecto() {
-        dama = new Dama();
-        System.out.println("Dama creada correctamente.");
+        try {
+            dama = new Dama();
+            System.out.println("Dama creada correctamente.");
+        }
+        catch(IllegalArgumentException | NullPointerException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     //4-crearDamaColor (2)
     private static void crearDamaColor() {
-        Color color = Consola.elegirColor();
-        dama = new Dama(color);
-        System.out.println("Dama de color <" + color + "> creada correctamente.");
+        boolean error=false;
+        do {
+            try {
+                Color color = Consola.elegirColor();
+                dama = new Dama(color);
+                System.out.println("Dama de color <" + color + "> creada correctamente.");
+            }
+            catch(IllegalArgumentException | NullPointerException e)
+            {
+                System.out.println("ERROR: La dama no ha sido creada.");
+                System.out.println(e.getMessage());
+                error=true;
+            }
+        } while (error);
     }
 
     //5-mover (3)
