@@ -43,12 +43,12 @@ public class Posicion {
         this.columna = columna;
     }
 
-    //5.1-HashCode para optimizar la búsqueda y organización de las posiciones ocupadas en colecciones.
+    //5.1-HashCode para optimizar la búsqueda y organización de las posiciones ocupadas en colecciones
     @Override
     public int hashCode() {
         return Objects.hash(fila,columna);
     }
-    //5.2-Equals para comparar si dos posiciones en el tablero tienen las mismas coordenadas).
+    //5.2-Equals para comparar si dos posiciones en el tablero tienen las mismas coordenadas
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -66,5 +66,4 @@ public class Posicion {
     public String toString() {
         return "fila=" + fila + ", columna=" + columna;
     }
-
 }

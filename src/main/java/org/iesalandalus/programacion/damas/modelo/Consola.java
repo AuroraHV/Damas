@@ -30,6 +30,7 @@ public class Consola {
             if (opcion < 1 || opcion > 5) {
                 System.out.println("Opción no válida.");
                 System.out.println("-----------------------------");
+                mostrarMenu();
             }
         } while (opcion < 1 || opcion > 5);
 
